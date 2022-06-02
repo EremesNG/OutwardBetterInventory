@@ -1,26 +1,23 @@
 # Better Inventory
 
 ## Features
-Adds the following features to the chat panel:
-- Ability to set the fade out delay (default is 15 seconds)
-- Ability to set the position
-- Ability to change chat font size
+Adds the following features to the inventory menu:
+- 'Salvage' option in the item context menu (right click)
 
-It's strongly recommended to use Outward Config Manager.
 
 Planned features:
-- Drag and drop the chat panel instead of editing the position value
-- Highlight/show new messages when not focused
-- Ability to resize the chat panel
-- Mod compatibility (some mod keybinds ignore that the chat is open)
-- Ability to link items in chat
+- Drag and drop items and skills onto quickslots to assign
+- Skill menu filters (offensive, sigils, boons, mana spells, stamina skills, etc)
+- Custom skill menu filters (based on user specified criteria)
+- Optional: Button to cast all spells in a category (useful for boons, probably better with custom filters)
+- Optional: Send item to nearby stash (only when in house or in town with house)
+- Optional: Send item to co-op partner
+- Localization
+- Better icon
+
+There is a high chance that I will put the optional (read: potentially "cheaty") improvements into another mod.
 
 ## Changelog
-### v1.1.0
-- Ability to change chat font size
-### v1.0.1
-- Fade out time config description fix
-- Scroll only when the chat input is visible
+
 ### v1.0.0
-- Ability to set chat panel fade out delay (default is 15 seconds)
-- Ability to set chat panel position via config
+- 'Salvage' option in the item context menu

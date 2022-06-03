@@ -6,7 +6,11 @@ namespace BetterInventory.ContextMenu {
 		}
 
 		public override bool IsActive(GameObject pointerPress) {
-			return true;
+			ItemDisplay itemDisplay = pointerPress.GetComponent<ItemDisplay>();
+			if (itemDisplay != null) {
+				return !(itemDisplay.RefItem is Skill);
+			}
+			return false;
 		}
 
 		public override void ExecuteAction(ContextMenuOptions contextMenu) {

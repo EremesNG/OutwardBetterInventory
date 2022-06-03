@@ -1,7 +1,7 @@
 {
     "name": "BetterInventory",
     "author": "Faeryn",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/Faeryn/OutwardBetterInventory",
     "description": "Inventory menu improvements: 'Salvage' in item menu",
     "dependencies": [

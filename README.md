@@ -5,7 +5,7 @@ Adds the following features to the inventory menu:
 - 'Salvage' option in the item context menu (right click): This is functionally equivalent to putting the item into the crafting menu and attempting to "craft" it. 
 The result is usually iron scraps, linen, palladium, etc.
 
-### WARNING: Use the mod at your own risk!
+### What to do when the mod doesn't work as intended?
 There is a slight chance that the mod may break (and break your game) in various exciting ways.
 If anything untoward happens (or nothing happens, which is also a problem), please do **one** of the following:
  - Open a [GitHub issue](https://github.com/Faeryn/OutwardBetterInventory/issues/new)

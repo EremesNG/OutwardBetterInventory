@@ -8,7 +8,14 @@ namespace BetterInventory.ContextMenu {
 		public override bool IsActive(GameObject pointerPress) {
 			ItemDisplay itemDisplay = pointerPress.GetComponent<ItemDisplay>();
 			if (itemDisplay != null) {
-				return !(itemDisplay.RefItem is Skill);
+				Item item = itemDisplay.RefItem;
+				if (item == null) {
+					return false;
+				}
+				if (itemDisplay.RefItem is Skill) {
+					return false;
+				}
+				return item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
 			}
 			return false;
 		}

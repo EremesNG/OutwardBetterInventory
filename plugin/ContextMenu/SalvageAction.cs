@@ -25,9 +25,6 @@ namespace BetterInventory.ContextMenu {
 
 		private void TryCraft(CraftingMenu craftingMenu, int itemID) {
 			BetterInventory.Log.LogDebug("Trying to salvage item: "+itemID);
-			for (int index = 0; index < craftingMenu.m_ingredientSelectors.Length; ++index) {
-				craftingMenu.m_ingredientSelectors[index].Free(true);
-			}
 			craftingMenu.OnRecipeSelected(-1, true);
 			craftingMenu.RefreshAutoRecipe();
 			craftingMenu.IngredientSelectorHasChanged(0, itemID);

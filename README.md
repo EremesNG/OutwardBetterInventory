@@ -5,6 +5,7 @@ Item context menu (right click) additons:
 - ``Salvage``: This is functionally equivalent to putting the item into the crafting menu and attempting to "craft" it. 
 The result is usually iron scraps, linen, palladium, etc.
 - ``Send to Stash``: Sends the item to your stash. This option works only if you are in a town with an active stash (so either a free one or you own a house there).
+- ``Send to Host's Stash``: Sends the item to the host's stash (ie. the player whose world you are in). This option works only if you are not the host in a multiplayer session.
 - ``Send to Other Player``: Sends the item to the other player. This option works only if you are in multiplayer and have a co-op partner connected.
 
 ## Configuration
@@ -36,6 +37,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.2.0
+- 'Send to Host's Stash' option in the item context menu
+
 ### v1.1.0
 - 'Send to Stash' option in the item context menu
 - 'Send to Other Player' option in the item context menu

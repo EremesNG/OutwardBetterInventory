@@ -20,6 +20,8 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - Optional: Button to cast all spells in a category (useful for boons, probably better with custom filters)
 - Localization
 - Some more salvage recipes (bows for example)
+- RaidMode compatibility ('Send to' option for each player)
+- Compatibility with any mods that add or change stashes
 
 ## What to do when the mod doesn't work as intended?
 There is a slight chance that the mod may break (and break your game) in various exciting ways.
@@ -28,6 +30,10 @@ If anything untoward happens (or nothing happens, which is also a problem), plea
 - Report it to me on the [Outward Modding Community](https://discord.gg/zKyfGmy7TR) Discord
 
 I'd love if you also attached a list of mods you are using, and the log from `Outward\Outward_Defed\output_log.txt`.
+
+## Special thanks
+- **sinai** for Quest Event data
+- **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
 ### v1.1.0

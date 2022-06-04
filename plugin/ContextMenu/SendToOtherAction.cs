@@ -37,6 +37,7 @@ namespace BetterInventory.ContextMenu {
 			}
 			Character character = itemDisplay.m_characterUI.TargetCharacter;
 			if (!TryGetNearestOtherPlayer(character, out Character otherCharacter)) {
+				character.CharacterUI.ShowInfoNotification("The other player is too far.");
 				return;
 			}
 			itemDisplay.TryMoveTo(otherCharacter.Inventory.Pouch);

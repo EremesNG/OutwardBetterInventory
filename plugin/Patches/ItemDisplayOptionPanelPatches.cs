@@ -11,7 +11,8 @@ namespace BetterInventory.Patches {
 		public static readonly Dictionary<int, ContextMenuAction> ExtraActions = new Dictionary<int, ContextMenuAction> {
 			{4242, new SalvageAction(4242)},
 			{4243, new SendToStashAction(4243)}, 
-			{4244, new SendToOtherAction(4244)}
+			{4244, new SendToHostStashAction(4244)},
+			{4245, new SendToOtherAction(4245)}
 		};
 	}
 	

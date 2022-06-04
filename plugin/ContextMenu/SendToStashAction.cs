@@ -13,7 +13,7 @@ namespace BetterInventory.ContextMenu {
 			{"NewSirocco", null}
 		};
 		
-		public SendToStashAction(int id) : base(id, "Send to Stash") {
+		public SendToStashAction(int id, string text = "Send to Stash") : base(id, text) {
 		}
 
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
@@ -21,7 +21,7 @@ namespace BetterInventory.ContextMenu {
 		}
 
 		protected override void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item) {
-			TrySendToStash(itemDisplay);
+			TrySendToStash(itemDisplay, itemDisplay.m_characterUI.TargetCharacter);
 		}
 
 		/*private bool IsNearOwnedStash(Character character) { // TODO This could be useful for mod compatibility
@@ -43,10 +43,9 @@ namespace BetterInventory.ContextMenu {
 			return false;
 		}
 		
-		private void TrySendToStash(ItemDisplay itemDisplay) {
-			Character character = itemDisplay.m_characterUI.TargetCharacter;
+		protected void TrySendToStash(ItemDisplay itemDisplay, Character stashOwner) {
 			if (IsInStashArea()) {
-				itemDisplay.TryMoveTo(character.Stash);
+				itemDisplay.TryMoveTo(stashOwner.Stash);
 			}
 		}
 	}

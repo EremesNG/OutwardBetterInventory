@@ -11,6 +11,7 @@ The result is usually iron scraps, linen, palladium, etc.
 ## Configuration
 It is strongly recommended to use [Outward Config Manager](https://outward.thunderstore.io/package/Mefino/Outward_Config_Manager/).
 - **Send to Stash**: Enables or disables the Send to Stash action. Default is off.
+- **Send to Host Stash**: Enables or disables the Send to Host's Stash action. Default is off.
 - **Send to Other Player**: Enables or disables the Send to Other Player action. Default is off.
 - **Send to Other Player max distance**: Sets the maximum distance for the Send to Other Player action (in metres). Default is 10.
 
@@ -37,7 +38,7 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
-### v1.2.0
+### v1.1.1
 - 'Send to Host's Stash' option in the item context menu
 
 ### v1.1.0

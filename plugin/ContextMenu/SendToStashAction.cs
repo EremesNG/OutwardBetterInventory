@@ -33,7 +33,7 @@ namespace BetterInventory.ContextMenu {
 			return false;
 		}*/
 
-		private bool IsInStashArea() {
+		protected bool IsInStashArea() {
 			Scene scene = SceneManager.GetActiveScene();
 			string sceneName = scene.name;
 			if (StashSceneQuestEvents.ContainsKey(sceneName)) {

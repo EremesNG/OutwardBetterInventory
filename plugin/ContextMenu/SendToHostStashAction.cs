@@ -6,7 +6,7 @@ namespace BetterInventory.ContextMenu {
 		}
 
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
-			return !IsHost() && base.IsActive(pointerPress, itemDisplay, item);
+			return !IsHost() && BetterInventory.SendToHostStashEnabled.Value && IsInStashArea();
 		}
 
 		protected override void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item) {

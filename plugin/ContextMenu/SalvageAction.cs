@@ -1,33 +1,16 @@
 using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
-	public class SalvageAction : ContextMenuAction {
+	public class SalvageAction : ItemContextMenuAction {
 		public SalvageAction(int id) : base(id, "Salvage") {
 		}
 
-		public override bool IsActive(GameObject pointerPress) {
-			ItemDisplay itemDisplay = pointerPress.GetComponent<ItemDisplay>();
-			if (itemDisplay != null) {
-				Item item = itemDisplay.RefItem;
-				if (item == null) {
-					return false;
-				}
-				if (itemDisplay.RefItem is Skill) {
-					return false;
-				}
-				return item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
-			}
-			return false;
+		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
+			return item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
 		}
 
-		public override void ExecuteAction(ContextMenuOptions contextMenu) {
-			ItemDisplayOptionPanel itemDisplayOptionPanel = contextMenu as ItemDisplayOptionPanel;
-			if (itemDisplayOptionPanel != null) {
-				ItemDisplay activatedItemDisplay = itemDisplayOptionPanel.m_activatedItemDisplay;
-				if (activatedItemDisplay!= null && !activatedItemDisplay.IsEmpty) {
-					TryCraft(activatedItemDisplay.CharacterUI.CraftingMenu, activatedItemDisplay.LastRefItemID);
-				}
-			}
+		protected override void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item) {
+			TryCraft(contextMenu.CharacterUI.CraftingMenu, item.ItemID);
 		}
 
 		private void TryCraft(CraftingMenu craftingMenu, int itemID) {

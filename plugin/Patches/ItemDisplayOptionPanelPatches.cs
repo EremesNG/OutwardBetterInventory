@@ -10,7 +10,8 @@ namespace BetterInventory.Patches {
 		// Extra action IDs start at 4242 to avoid any potential conflicts
 		public static readonly Dictionary<int, ContextMenuAction> ExtraActions = new Dictionary<int, ContextMenuAction> {
 			{4242, new SalvageAction(4242)},
-			{4243, new SendToStashAction(4243)}
+			{4243, new SendToStashAction(4243)}, 
+			{4244, new SendToOtherAction(4244)}
 		};
 	}
 	

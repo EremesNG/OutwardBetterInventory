@@ -13,6 +13,8 @@ namespace BetterInventory {
 		internal static ManualLogSource Log;
 		
 		public static ConfigEntry<bool> SendToStashEnabled;
+		public static ConfigEntry<bool> SendToOtherEnabled;
+		public static ConfigEntry<float> SendToOtherMaxDistance;
 		
 		internal void Awake() {
 			Log = this.Logger;
@@ -23,6 +25,8 @@ namespace BetterInventory {
 		
 		private void InitializeConfig() {
 			SendToStashEnabled = Config.Bind(DISPLAY_NAME, "Send to Stash", false, "Enables the 'Send to Stash' action on items while in town where you own a stash");
+			SendToOtherEnabled = Config.Bind(DISPLAY_NAME, "Send to Other Player", false, "Enables the 'Send to Other Player' action on items in multiplayer");
+			SendToOtherMaxDistance = Config.Bind(DISPLAY_NAME, "Send to Other Player maximum distance", 10f, "Maximum distance between you and the recipient (in metres)");
 		}
 	}
 }

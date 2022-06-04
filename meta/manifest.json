@@ -3,7 +3,7 @@
     "author": "Faeryn",
     "version_number": "1.1.1",
     "website_url": "https://github.com/Faeryn/OutwardBetterInventory",
-    "description": "Inventory menu improvements: 'Salvage', 'Send to Stash', 'Send to Other Player' in item menu. More information in readme.",
+    "description": "Inventory menu improvements: 'Salvage', 'Send to Stash', 'Send to Host's Stash', 'Send to Other Player' in item menu. More information in readme.",
     "dependencies": [
         "BepInEx-BepInExPack_Outward-5.4.18"
     ]

@@ -3,12 +3,14 @@ using System.Linq;
 using BetterInventory.ContextMenu;
 using HarmonyLib;
 using UnityEngine;
+
 namespace BetterInventory.Patches {
 
 	public static class ItemDisplayOptionPanelConsts {
 		// Extra action IDs start at 4242 to avoid any potential conflicts
 		public static readonly Dictionary<int, ContextMenuAction> ExtraActions = new Dictionary<int, ContextMenuAction> {
-			{4242, new SalvageAction(4242)}
+			{4242, new SalvageAction(4242)},
+			{4243, new SendToStashAction(4243)}
 		};
 	}
 	

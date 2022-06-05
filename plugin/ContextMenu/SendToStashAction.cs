@@ -4,13 +4,14 @@ using UnityEngine.SceneManagement;
 
 namespace BetterInventory.ContextMenu {
 	public class SendToStashAction : ItemContextMenuAction {
-		private static readonly Dictionary<string, string> StashSceneQuestEvents = new Dictionary<string, string>{
-			{"CierzoNewTerrain", null},
-			{"Berg", "g403vlCU6EG0s1mI6t_rFA"},
-			{"Monsoon", "shhCMFa-lUqbIYS9hRcsdg"},
-			{"Levant", "LpVUuoxfhkaWOgh6XLbarA"},
-			{"Harmattan", "0r087PIxTUqoj6N7z2HFNw"},
-			{"NewSirocco", null}
+		// Scene, (QuestEvent id, false if it has to be missing)
+		private static readonly Dictionary<string, (string questEvent, bool reqValue)> StashSceneQuestEvents = new Dictionary<string, (string, bool)>{
+			{"CierzoNewTerrain", ("qPEx275DTUSPbnv-PnFn7w", false)},
+			{"Berg", ("g403vlCU6EG0s1mI6t_rFA", true)},
+			{"Monsoon", ("shhCMFa-lUqbIYS9hRcsdg", true)},
+			{"Levant", ("LpVUuoxfhkaWOgh6XLbarA", true)},
+			{"Harmattan", ("0r087PIxTUqoj6N7z2HFNw", true)},
+			{"NewSirocco", (null, true)}
 		};
 		
 		public SendToStashAction(int id, string text = "Send to Stash") : base(id, text) {
@@ -37,8 +38,8 @@ namespace BetterInventory.ContextMenu {
 			Scene scene = SceneManager.GetActiveScene();
 			string sceneName = scene.name;
 			if (StashSceneQuestEvents.ContainsKey(sceneName)) {
-				string questEvent = StashSceneQuestEvents[sceneName];
-				return questEvent == null || QuestEventManager.Instance.HasQuestEvent(questEvent);
+				(string questEvent, bool reqValue) condition = StashSceneQuestEvents[sceneName];
+				return condition.questEvent == null || QuestEventManager.Instance.HasQuestEvent(condition.questEvent) == condition.reqValue;
 			}
 			return false;
 		}

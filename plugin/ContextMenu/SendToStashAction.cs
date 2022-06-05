@@ -6,7 +6,7 @@ namespace BetterInventory.ContextMenu {
 	public class SendToStashAction : ItemContextMenuAction {
 		// Scene, (QuestEvent id, false if it has to be missing)
 		private static readonly Dictionary<string, (string questEvent, bool reqValue)> StashSceneQuestEvents = new Dictionary<string, (string, bool)>{
-			{"CierzoNewTerrain", ("qPEx275DTUSPbnv-PnFn7w", false)},
+			{"CierzoNewTerrain", ("-Ku9dHjTl0KeUPxWk0ZWWQ", false)},
 			{"Berg", ("g403vlCU6EG0s1mI6t_rFA", true)},
 			{"Monsoon", ("shhCMFa-lUqbIYS9hRcsdg", true)},
 			{"Levant", ("LpVUuoxfhkaWOgh6XLbarA", true)},

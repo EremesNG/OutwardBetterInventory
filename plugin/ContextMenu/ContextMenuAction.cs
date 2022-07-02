@@ -2,14 +2,11 @@ using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
 	public abstract class ContextMenuAction {
-		private int id;
 		private string text;
 
-		public string Text => text;
-		public int ID => id;
-
-		public ContextMenuAction(int id, string text) {
-			this.id = id;
+		public virtual string Text => text;
+		
+		public ContextMenuAction(string text) {
 			this.text = text;
 		}
 

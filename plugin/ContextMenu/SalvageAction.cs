@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
 	public class SalvageAction : ItemContextMenuAction {
-		public SalvageAction(int id) : base(id, "Salvage") {
+		public SalvageAction() : base("Salvage") {
 		}
 
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {

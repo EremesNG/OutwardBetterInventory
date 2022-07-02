@@ -14,7 +14,7 @@ namespace BetterInventory.ContextMenu {
 			{"NewSirocco", (null, true)}
 		};
 		
-		public SendToStashAction(int id, string text = "Send to Stash") : base(id, text) {
+		public SendToStashAction(string text = "Send to Stash") : base(text) {
 		}
 
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {

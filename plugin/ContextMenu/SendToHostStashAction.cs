@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
 	public class SendToHostStashAction : SendToStashAction {
-		public SendToHostStashAction(int id) : base(id, "Send to Host's Stash") {
+		public SendToHostStashAction() : base("Send to Host's Stash") {
 		}
 
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
 	public abstract class ItemContextMenuAction : ContextMenuAction {
-		protected ItemContextMenuAction(int id, string text) : base(id, text) {
+		protected ItemContextMenuAction(string text) : base(text) {
 		}
 		
 		public override bool IsActive(GameObject pointerPress) {

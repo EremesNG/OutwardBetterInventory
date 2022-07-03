@@ -40,6 +40,7 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 ## Changelog
 ### v1.1.2
 - Support for more than 2 players (for example Raid Mode mod)
+- More reliable way to check the Cierzo house stash
 
 ### v1.1.1
 - 'Send to Host's Stash' option in the item context menu

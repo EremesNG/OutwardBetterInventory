@@ -6,7 +6,7 @@ Item context menu (right click) additons:
 The result is usually iron scraps, linen, palladium, etc.
 - ``Send to Stash``: Sends the item to your stash. This option works only if you are in a town with an active stash (so either a free one or you own a house there).
 - ``Send to Host's Stash``: Sends the item to the host's stash (ie. the player whose world you are in). This option works only if you are not the host in a multiplayer session.
-- ``Send to Other Player``: Sends the item to the other player. This option works only if you are in multiplayer and have a co-op partner connected.
+- ``Send to [Player name]``: Sends the item to the other player. This option works only if you are in multiplayer and have one or more co-op partners connected.
 
 ## Configuration
 It is strongly recommended to use [Outward Config Manager](https://outward.thunderstore.io/package/Mefino/Outward_Config_Manager/).
@@ -22,7 +22,7 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - Optional: Button to cast all spells in a category (useful for boons, probably better with custom filters)
 - Localization
 - Some more salvage recipes (bows for example)
-- RaidMode compatibility ('Send to' option for each player)
+- Filter items and skills by name
 - Compatibility with any mods that add or change stashes
 
 ## What to do when the mod doesn't work as intended?
@@ -38,6 +38,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.1.2
+- Support for more than 2 players (for example Raid Mode mod)
+
 ### v1.1.1
 - 'Send to Host's Stash' option in the item context menu
 

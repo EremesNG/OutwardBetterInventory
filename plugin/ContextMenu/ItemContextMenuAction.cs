@@ -1,11 +1,9 @@
 using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
-	public abstract class ItemContextMenuAction : ContextMenuAction {
-		protected ItemContextMenuAction(string text) : base(text) {
-		}
-		
-		public override bool IsActive(GameObject pointerPress) {
+	public abstract class ItemContextMenuAction : IContextMenuAction {
+
+		public bool IsActive(GameObject pointerPress) {
 			ItemDisplay itemDisplay = pointerPress.GetComponent<ItemDisplay>();
 			if (itemDisplay == null) {
 				return false;
@@ -17,7 +15,7 @@ namespace BetterInventory.ContextMenu {
 			return false;
 		}
 		
-		public override void ExecuteAction(ContextMenuOptions contextMenu) {
+		public void ExecuteAction(ContextMenuOptions contextMenu) {
 			ItemDisplayOptionPanel itemDisplayOptionPanel = contextMenu as ItemDisplayOptionPanel;
 			if (itemDisplayOptionPanel == null) {
 				return;
@@ -31,7 +29,13 @@ namespace BetterInventory.ContextMenu {
 				ExecuteAction(itemDisplayOptionPanel, itemDisplay, item);
 			}
 		}
-		
+
+		public string GetText(ContextMenuOptions contextMenu) {
+			return GetText(contextMenu as ItemDisplayOptionPanel);
+		}
+
+		public abstract string GetText(ItemDisplayOptionPanel contextMenu);
+
 		protected abstract bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item);
 
 		protected abstract void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item);

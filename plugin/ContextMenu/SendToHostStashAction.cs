@@ -2,9 +2,11 @@ using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
 	public class SendToHostStashAction : SendToStashAction {
-		public SendToHostStashAction() : base("Send to Host's Stash") {
-		}
 
+		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+			return "Send to Host's Stash";
+		}
+		
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
 			return !IsHost() && BetterInventory.SendToHostStashEnabled.Value && IsInStashArea();
 		}

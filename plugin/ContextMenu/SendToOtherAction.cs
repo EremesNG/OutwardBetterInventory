@@ -4,12 +4,14 @@ namespace BetterInventory.ContextMenu {
 	public class SendToOtherAction : ItemContextMenuAction {
 		private int playerID;
 
-		public override string Text => $"Send to {GetPlayerName()}";
-		
-		public SendToOtherAction(int playerID) : base("Send to Other") {
+		public SendToOtherAction(int playerID) {
 			this.playerID = playerID;
 		}
 
+		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+			return $"Send to {GetPlayerName()}";
+		}
+		
 		private string GetPlayerName() {
 			if (!IsValid()) {
 				return "UNKNOWN_PLAYER"; // This should never happen but it's here just in case

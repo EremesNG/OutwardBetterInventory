@@ -2,9 +2,11 @@ using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
 	public class SalvageAction : ItemContextMenuAction {
-		public SalvageAction() : base("Salvage") {
-		}
 
+		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+			return "Salvage";
+		}
+		
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
 			return item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
 		}

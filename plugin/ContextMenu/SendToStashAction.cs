@@ -13,9 +13,11 @@ namespace BetterInventory.ContextMenu {
 			{"Harmattan", ("0r087PIxTUqoj6N7z2HFNw", true)},
 			{"NewSirocco", (null, true)}
 		};
-		
-		public SendToStashAction(string text = "Send to Stash") : base(text) {
+
+		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+			return "Send to Stash";
 		}
+
 
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
 			return BetterInventory.SendToStashEnabled.Value && IsInStashArea();

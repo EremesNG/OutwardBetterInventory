@@ -12,7 +12,7 @@ namespace BetterInventory.Patches {
 		public static readonly int FIRST_ID = 4242;
 		public static readonly int MAX_PLAYER_COUNT = 10;
 
-		public static readonly Dictionary<int, ContextMenuAction> ExtraActions = new ContextMenuAction[]{
+		public static readonly Dictionary<int, IContextMenuAction> ExtraActions = new IContextMenuAction[]{
 				new SalvageAction(),
 				new SendToStashAction(),
 				new SendToHostStashAction()
@@ -35,7 +35,7 @@ namespace BetterInventory.Patches {
 		[HarmonyPatch(nameof(ItemDisplayOptionPanel.GetActionText)), HarmonyPrefix]
 		private static bool EquipmentMenu_GetActionText_Prefix(ItemDisplayOptionPanel __instance, int _actionID, ref string __result) {
 			if (ExtraActions.ContainsKey(_actionID-FIRST_ID)) {
-				__result = ExtraActions[_actionID-FIRST_ID].Text;
+				__result = ExtraActions[_actionID-FIRST_ID].GetText(__instance);
 				return false;
 			}
 			return true;

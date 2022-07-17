@@ -1,3 +1,4 @@
+using BetterInventory.Extensions;
 using UnityEngine;
 
 namespace BetterInventory.ContextMenu {
@@ -47,8 +48,14 @@ namespace BetterInventory.ContextMenu {
 				character.CharacterUI.ShowInfoNotification($"{otherCharacter.Name} is too far.");
 				return;
 			}
-			
-			itemDisplay.TryMoveTo(otherCharacter.Inventory.Pouch);
+
+			ItemContainer targetContainer = otherCharacter.Inventory.Pouch;
+			targetContainer.SetTemporaryDisplayName(otherCharacter.Name);
+			try {
+				itemDisplay.TryMoveTo(targetContainer);
+			} finally {
+				targetContainer.ClearTemporaryDisplayName();
+			}
 		}
 	}
 }

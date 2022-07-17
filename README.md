@@ -24,6 +24,7 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - Some more salvage recipes (bows for example)
 - Filter items and skills by name
 - Compatibility with any mods that add or change stashes
+- Notification for the target player when someone sends them an item (instead of just silently adding it to their inventory)
 
 ## What to do when the mod doesn't work as intended?
 There is a slight chance that the mod may break (and break your game) in various exciting ways.
@@ -38,6 +39,11 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.1.3
+- 'Send to' actions are enabled by default
+- **Send to Other Player** now uses the target player's name in the amount prompt
+- Send actions work on silver too
+
 ### v1.1.2
 - Support for more than 2 players (for example Raid Mode mod)
 - More reliable way to check the Cierzo house stash

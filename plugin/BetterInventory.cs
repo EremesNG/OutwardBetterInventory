@@ -25,9 +25,9 @@ namespace BetterInventory {
 		}
 		
 		private void InitializeConfig() {
-			SendToStashEnabled = Config.Bind(DISPLAY_NAME, "Send to Stash", false, "Enables the 'Send to Stash' action on items while in town where you own a stash");
-			SendToHostStashEnabled = Config.Bind(DISPLAY_NAME, "Send to Host Stash", false, "Enables the 'Send to Host's Stash' action on items while in town where the host owns a stash");
-			SendToOtherEnabled = Config.Bind(DISPLAY_NAME, "Send to Other Player", false, "Enables the 'Send to Other Player' action on items in multiplayer");
+			SendToStashEnabled = Config.Bind(DISPLAY_NAME, "Send to Stash", true, "Enables the 'Send to Stash' action on items while in town where you own a stash");
+			SendToHostStashEnabled = Config.Bind(DISPLAY_NAME, "Send to Host Stash", true, "Enables the 'Send to Host's Stash' action on items while in town where the host owns a stash");
+			SendToOtherEnabled = Config.Bind(DISPLAY_NAME, "Send to Other Player", true, "Enables the 'Send to Other Player' action on items in multiplayer");
 			SendToOtherMaxDistance = Config.Bind(DISPLAY_NAME, "Send to Other Player maximum distance", 10f, "Maximum distance between you and the recipient (in metres)");
 		}
 	}

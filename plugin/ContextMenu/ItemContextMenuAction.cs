@@ -8,36 +8,40 @@ namespace BetterInventory.ContextMenu {
 			if (itemDisplay == null) {
 				return false;
 			}
+			bool isCurrency = itemDisplay is CurrencyDisplay;
 			Item item = itemDisplay.RefItem;
-			if (item != null && !(item is Skill)) {
-				return IsActive(pointerPress, itemDisplay, item);
+			if (isCurrency || item != null && !(item is Skill)) {
+				return IsActive(pointerPress, itemDisplay, item, isCurrency);
 			}
 			return false;
 		}
 		
 		public void ExecuteAction(ContextMenuOptions contextMenu) {
 			ItemDisplayOptionPanel itemDisplayOptionPanel = contextMenu as ItemDisplayOptionPanel;
-			if (itemDisplayOptionPanel == null) {
+			CurrencyDisplayOptionPanel currencyDisplayOptionPanel = contextMenu as CurrencyDisplayOptionPanel;
+			if (itemDisplayOptionPanel == null && currencyDisplayOptionPanel == null) {
 				return;
 			}
-			ItemDisplay itemDisplay = itemDisplayOptionPanel.m_activatedItemDisplay;
+			ItemDisplay itemDisplay = null;
+			if (itemDisplayOptionPanel != null) {
+				itemDisplay = itemDisplayOptionPanel.m_activatedItemDisplay;
+			} else if (currencyDisplayOptionPanel != null) {
+				itemDisplay = currencyDisplayOptionPanel.m_activatedCurrencyDisplay;
+			}
 			if (itemDisplay == null) {
 				return;
 			}
+			bool isCurrency = itemDisplay is CurrencyDisplay;
 			Item item = itemDisplay.RefItem;
-			if (item != null && !(item is Skill)) {
-				ExecuteAction(itemDisplayOptionPanel, itemDisplay, item);
+			if (isCurrency || item != null && !(item is Skill)) {
+				ExecuteAction(itemDisplayOptionPanel, itemDisplay, item, isCurrency);
 			}
 		}
 
-		public string GetText(ContextMenuOptions contextMenu) {
-			return GetText(contextMenu as ItemDisplayOptionPanel);
-		}
+		public abstract string GetText(ContextMenuOptions contextMenu);
 
-		public abstract string GetText(ItemDisplayOptionPanel contextMenu);
+		protected abstract bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency);
 
-		protected abstract bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item);
-
-		protected abstract void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item);
+		protected abstract void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency);
 	}
 }

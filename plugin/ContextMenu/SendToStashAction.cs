@@ -14,16 +14,16 @@ namespace BetterInventory.ContextMenu {
 			{"NewSirocco", (null, true)}
 		};
 
-		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+		public override string GetText(ContextMenuOptions contextMenu) {
 			return "Send to Stash";
 		}
 
 
-		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
+		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
 			return BetterInventory.SendToStashEnabled.Value && IsInStashArea();
 		}
 
-		protected override void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item) {
+		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {
 			TrySendToStash(itemDisplay, itemDisplay.m_characterUI.TargetCharacter);
 		}
 

@@ -3,16 +3,18 @@ using UnityEngine;
 namespace BetterInventory.ContextMenu {
 	public class SalvageAction : ItemContextMenuAction {
 
-		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+		public override string GetText(ContextMenuOptions contextMenu) {
 			return "Salvage";
 		}
 		
-		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
-			return item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
+		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
+			return !isCurrency && item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
 		}
 
-		protected override void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item) {
-			TryCraft(contextMenu.CharacterUI.CraftingMenu, item.ItemID);
+		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {
+			if (!isCurrency) {
+				TryCraft(contextMenu.CharacterUI.CraftingMenu, item.ItemID);
+			}
 		}
 
 		private void TryCraft(CraftingMenu craftingMenu, int itemID) {

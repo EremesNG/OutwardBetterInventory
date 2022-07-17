@@ -9,7 +9,7 @@ namespace BetterInventory.ContextMenu {
 			this.playerID = playerID;
 		}
 
-		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+		public override string GetText(ContextMenuOptions contextMenu) {
 			return $"Send to {GetPlayerName()}";
 		}
 		
@@ -24,11 +24,11 @@ namespace BetterInventory.ContextMenu {
 			return Global.Lobby.PlayersInLobby.Count > playerID;
 		}
 		
-		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
+		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
 			return BetterInventory.SendToOtherEnabled.Value && IsValid() && !Global.Lobby.PlayersInLobby[playerID].IsLocalPlayer;
 		}
 
-		protected override void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item) {
+		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {
 			TrySendToOther(itemDisplay);
 		}
 

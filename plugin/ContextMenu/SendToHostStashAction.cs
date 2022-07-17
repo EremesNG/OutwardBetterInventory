@@ -3,15 +3,15 @@ using UnityEngine;
 namespace BetterInventory.ContextMenu {
 	public class SendToHostStashAction : SendToStashAction {
 
-		public override string GetText(ItemDisplayOptionPanel contextMenu) {
+		public override string GetText(ContextMenuOptions contextMenu) {
 			return "Send to Host's Stash";
 		}
 		
-		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item) {
+		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
 			return !IsHost() && BetterInventory.SendToHostStashEnabled.Value && IsInStashArea();
 		}
 
-		protected override void ExecuteAction(ItemDisplayOptionPanel contextMenu, ItemDisplay itemDisplay, Item item) {
+		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {
 			TrySendToStash(itemDisplay, CharacterManager.Instance.GetWorldHostCharacter());
 		}
 

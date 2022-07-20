@@ -25,7 +25,7 @@ namespace BetterInventory.ContextMenu {
 		}
 		
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
-			return BetterInventory.SendToOtherEnabled.Value && IsValid() && !Global.Lobby.PlayersInLobby[playerID].IsLocalPlayer;
+			return BetterInventory.SendToOtherEnabled.Value && IsValid() && !Global.Lobby.PlayersInLobby[playerID].IsLocalPlayer && (isCurrency || item.IsChildToPlayer);
 		}
 
 		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {

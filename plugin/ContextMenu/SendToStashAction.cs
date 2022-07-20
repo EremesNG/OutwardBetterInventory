@@ -20,7 +20,7 @@ namespace BetterInventory.ContextMenu {
 
 
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
-			return BetterInventory.SendToStashEnabled.Value && IsInStashArea();
+			return BetterInventory.SendToStashEnabled.Value && IsInStashArea() && (isCurrency || item.IsChildToPlayer);
 		}
 
 		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {

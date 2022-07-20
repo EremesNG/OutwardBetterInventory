@@ -8,7 +8,7 @@ namespace BetterInventory.ContextMenu {
 		}
 		
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
-			return !IsHost() && BetterInventory.SendToHostStashEnabled.Value && IsInStashArea();
+			return !IsHost() && BetterInventory.SendToHostStashEnabled.Value && IsInStashArea() && (isCurrency || item.IsChildToPlayer);
 		}
 
 		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {

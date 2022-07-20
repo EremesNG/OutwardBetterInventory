@@ -8,7 +8,7 @@ namespace BetterInventory.ContextMenu {
 		}
 		
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
-			return !isCurrency && item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
+			return !isCurrency && item.IsChildToPlayer && item.HasTag(TagSourceManager.GetCraftingIngredient(Recipe.CraftingType.Survival));
 		}
 
 		protected override void ExecuteAction(ContextMenuOptions contextMenu, ItemDisplay itemDisplay, Item item, bool isCurrency) {

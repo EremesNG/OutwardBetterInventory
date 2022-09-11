@@ -39,6 +39,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.1.5
+- Fixed a bug with the salvage button on equipped items
+
 ### v1.1.4
 - Fixed a bug with the item context menu
 

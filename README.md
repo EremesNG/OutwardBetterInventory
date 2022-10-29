@@ -10,6 +10,7 @@ The result is usually iron scraps, linen, palladium, etc.
 
 ## Configuration
 It is strongly recommended to use [Outward Config Manager](https://outward.thunderstore.io/package/Mefino/Outward_Config_Manager/).
+- **Salvage**: Enables or disables the Salvage action.
 - **Send to Stash**: Enables or disables the Send to Stash action.
 - **Send to Host Stash**: Enables or disables the Send to Host's Stash action.
 - **Send to Other Player**: Enables or disables the Send to Other Player action.
@@ -39,6 +40,10 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.1.6
+- **Send to stash** and **Send to host stash** actions are now compatible with the legacy stash setting in Vheos Mod Pack (City bound stash). Note: NOT with inn stashes!
+- Config entry to disable the **Salvage** button
+
 ### v1.1.5
 - Fixed a bug with the salvage button on equipped items
 

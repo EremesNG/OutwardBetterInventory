@@ -1,6 +1,8 @@
 # Better Inventory
 
 ## Features
+Option to show item base price in inventory.  
+
 Item context menu (right click) additons:
 - ``Salvage``: This is functionally equivalent to putting the item into the crafting menu and attempting to "craft" it. 
 The result is usually iron scraps, linen, palladium, etc.
@@ -15,6 +17,7 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - **Send to Host Stash**: Enables or disables the Send to Host's Stash action.
 - **Send to Other Player**: Enables or disables the Send to Other Player action.
 - **Send to Other Player max distance**: Sets the maximum distance for the Send to Other Player action (in metres). Default is 10.
+- **Show item silver value**: Shows or hides item silver value (base price) in the inventory. Note that this is usually higher than sell price. Default is off.
 
 ## Planned features:
 - Drag and drop items and skills onto quickslots to assign
@@ -40,6 +43,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.2.0
+- Added **Show item silver value** feature to show the base price of items in inventory.
+
 ### v1.1.6
 - **Send to stash** and **Send to host stash** actions are now compatible with the legacy stash setting in Vheos Mod Pack (City bound stash). Note: NOT with inn stashes!
 - Config entry to disable the **Salvage** button

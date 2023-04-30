@@ -1,7 +1,7 @@
 # Better Inventory
 
 ## Features
-Option to show item base price in inventory.  
+Option to show item base/sell price in inventory.  
 
 Item context menu (right click) additons:
 - ``Salvage``: This is functionally equivalent to putting the item into the crafting menu and attempting to "craft" it. 
@@ -17,7 +17,8 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - **Send to Host Stash**: Enables or disables the Send to Host's Stash action.
 - **Send to Other Player**: Enables or disables the Send to Other Player action.
 - **Send to Other Player max distance**: Sets the maximum distance for the Send to Other Player action (in metres). Default is 10.
-- **Show item silver value**: Shows or hides item silver value (base price) in the inventory. Note that this is usually higher than sell price. Default is off.
+- **Show item silver value**: Shows or hides item silver value in the inventory. Default is off.
+- **Show item silver value TYPE**: Select the item price type to display in inventory. Base Value(Usually buy value) or Sell Value. Default is Sell Value.
 
 ## Planned features:
 - Drag and drop items and skills onto quickslots to assign
@@ -43,6 +44,11 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+
+### v1.2.1
+
+- Added **Show item silver value TYPE** feature to select the item price type to display in inventory.
+
 ### v1.2.0
 - Added **Show item silver value** feature to show the base price of items in inventory.
 

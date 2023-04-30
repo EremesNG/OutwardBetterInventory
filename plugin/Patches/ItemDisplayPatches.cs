@@ -1,4 +1,5 @@
 using HarmonyLib;
+using UnityEngine;
 
 namespace BetterInventory.Patches {
 	
@@ -23,8 +24,23 @@ namespace BetterInventory.Patches {
 			if (!__instance.m_valueHolder.activeSelf) {
 				__instance.m_valueHolder.SetActive(true);
 			}
-			
-			__instance.m_lblValue.text = __instance.RefItem.RawBaseValue.ToString();
+
+			string itemPrice = "0";
+
+
+			switch (BetterInventory.ItemValueType.Value)
+            {
+				case BetterInventory.ItemValueTypeSetting.BaseValue:
+					itemPrice = __instance.RefItem.RawBaseValue.ToString();
+					break;
+				case BetterInventory.ItemValueTypeSetting.SellValue:
+					float sellModif = (1f + __instance.CharacterUI.TargetCharacter.GetItemSellPriceModifier((Merchant)null, __instance.RefItem)) * 0.3f;
+					float rawSellPrice = sellModif * (float)__instance.RefItem.RawCurrentValue;
+					itemPrice = Mathf.RoundToInt(rawSellPrice).ToString();
+					break;
+			}
+
+			__instance.m_lblValue.text = itemPrice;
 		}
 		
 	}

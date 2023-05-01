@@ -5,24 +5,31 @@ namespace BetterInventory.Patches {
 	
 	[HarmonyPatch(typeof(ItemDisplay))]
 	public static class ItemDisplayPatches {
-		
-		[HarmonyPatch(nameof(ItemDisplay.UpdateValueDisplay)), HarmonyPostfix]
-		private static void ItemDisplay_UpdateValueDisplay_Postfix(ItemDisplay __instance) {
-			if (!BetterInventory.ShowItemValueEnabled.Value) {
-				return;
-			}
-			
-			if (!__instance.RefItem) {
-				return;
+
+		[HarmonyPrefix, HarmonyPatch(typeof(ItemDisplay), nameof(ItemDisplay.UpdateValueDisplay))]
+		private static bool ItemDisplay_UpdateValueDisplay_Postfix(ItemDisplay __instance) {
+
+			if (!BetterInventory.ShowItemValueEnabled.Value
+				|| !__instance.CharacterUI
+				|| !__instance.RefItem)
+				return true;
+
+			// Disable for waterskin, etc.
+			if (__instance.RefItem is WaterContainer) {
+				return true;
 			}
 
-			if (__instance.CharacterUI && __instance.CharacterUI.GetIsMenuDisplayed(CharacterUI.MenuScreens.Shop)) {
+			// Disable if cant sell
+			if (!__instance.RefItem.IsSellable)
+				return true;
+
+			if (__instance.CharacterUI.GetIsMenuDisplayed(CharacterUI.MenuScreens.Shop)) {
 				// Disable in shops
-				return;
+				return true;
 			}
 
 			if (!__instance.m_valueHolder.activeSelf) {
-				__instance.m_valueHolder.SetActive(true);
+				__instance.m_valueHolder.SetActive(!__instance.m_valueHolder.activeSelf);
 			}
 
 			string itemPrice = "0";
@@ -41,6 +48,7 @@ namespace BetterInventory.Patches {
 			}
 
 			__instance.m_lblValue.text = itemPrice;
+			return false;
 		}
 		
 	}
